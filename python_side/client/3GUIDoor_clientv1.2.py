@@ -4,8 +4,8 @@ import time
 import datetime
 import socket
 
-#client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#client_socket.connect(("172.18.208.19", 5000))
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client_socket.connect(("172.18.208.19", 5000))
 
 #print ("Connected to Server:")
 
@@ -92,7 +92,7 @@ class gui(tkinter.Tk):
                 f = open('doorlog.ian','a')
                 f.write("Flashing LCD Come in for 10 seconds @ " + (str(the_Time) + "\n"))
                 f.close
-                #client_socket.send(b"yes")
+                client_socket.send(b"yes")
                 Label = tkinter.Label(self, text='   Come in   ')
                 Label["background"] = "white"
                 Label.grid(column=1, row=0)
@@ -110,7 +110,7 @@ class gui(tkinter.Tk):
                 f = open('doorlog.ian','a')
                 f.write("You clicked the Out of office button!\n")
                 f.close
-                #client_socket.send(b"out")
+                client_socket.send(b"out")
                 Label = tkinter.Label(self, text='Out of Office')
                 Label["background"] = "white"
                 Label.grid(column=1, row=0)
